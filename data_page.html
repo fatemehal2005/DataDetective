@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url("{{ url_for('static', filename='background_image.png') }}") no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #005f73, #0a9396);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right {
+            display: flex;
+        }
+
+        .logo {
+            max-height: 50px;
+            margin-right: 20px;
+        }
+
+        .nav-link {
+            margin-left: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #94d2bd;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 900px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #000000;
+        }
+
+        .charts-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .chart {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .data-detectives {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            border-top: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            color: #005f73;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <img class="logo" src="{{ url_for('static', filename='data-detectives-logo.png') }}" alt="Logo">
+            <div class="data-detectives">DATA DETECTIVES</div>
+        </div>
+        <div class="header-right">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/data">Data</a>
+            <a class="nav-link" href="/predict">Predict</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 style="color: #57b998;">Data Page</h2>
+        <div class="charts-container">
+            <div class="chart">
+                <img src="{{ url_for('static', filename='pie_chart.png') }}" alt="Pie Chart">
+            </div>
+            <div class="chart">
+                <img src="{{ url_for('static', filename='bar_chart.png') }}" alt="Bar Chart">
+            </div>
+            <div class="chart">
+                <img src="{{ url_for('static', filename='another_bar_chart.png') }}" alt="Another Bar Chart">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

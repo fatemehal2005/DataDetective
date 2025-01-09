@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('4.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+        }
+        .header {
+            background: linear-gradient(90deg, #005f73, #0a9396);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        .header-right {
+            display: flex;
+        }
+        .logo {
+            max-height: 50px;
+            margin-right: 20px;
+        }
+        .nav-link {
+            margin-left: 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #94d2bd;
+        }
+        .container {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #005f73;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #005f73;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #005f73;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #94d2bd;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <img class="logo" src="{{ url_for('static', filename='data-detectives-logo.png') }}" alt="Logo">
+            <div class="data-detectives">DATA DETECTIVES</div>
+        </div>
+        <div class="header-right">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/data">Data</a>
+            <a class="nav-link" href="/predict">Predict</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Prediction Page</h1>
+        <form method="POST" action="/predict">
+            <div class="form-group">
+                <label for="studentId">Student ID:</label>
+                <select id="studentId" name="studentId">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="studyHours">Study Hours per Day:</label>
+                <input type="number" id="studyHours" name="studyHours">
+            </div>
+            <div class="form-group">
+                <label for="sleepHours">Sleep Hours per Day:</label>
+                <input type="number" id="sleepHours" name="sleepHours">
+            </div>
+            <div class="form-group">
+                <label for="socialHours">Social Hours per Day:</label>
+                <input type="number" id="socialHours" name="socialHours">
+            </div>
+            <div class="form-group">
+                <label for="stressLevel">Stress Level:</label>
+                <select id="stressLevel" name="stressLevel">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
